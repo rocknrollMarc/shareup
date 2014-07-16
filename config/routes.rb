@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     resources :shares
   end
 
+  devise_scope :user do
+    get '/api/current_user' => 'users/sessions#show_current_user'
+  end
+
   devise_for :users,
           :controller => {
             :omniauth_callbacks => "users/omniauth_callbacks"
