@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :shares
+  namespace :api do
+    resources :shares
+  end
 
   devise_for :users,
           :controller => {
