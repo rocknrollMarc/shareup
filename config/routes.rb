@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  get '/dashboard' =>  'welcome#dashboard'
+
+  root to: 'welcome#index'
+
+
   namespace :api do
     resources :shares
   end
