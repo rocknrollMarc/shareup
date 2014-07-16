@@ -1,4 +1,4 @@
-angular.module('myApp', ['ngRoute']).config(function($routeProvider) {
+angular.module('myApp', ['ngRoute', 'myApp.controllers']).config(function($routeProvider) {
   $routeProvider.when('/', {
     templateUrl: '/templates/dashboard.html',
     controller: 'HomeController'
