@@ -18,6 +18,10 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'uuidtools'
 
+gem 'angularjs-rails', '>= 1.2.0.rc1'
+gem 'ngmin-rails'
+
+gem 'zurb-foundation'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
