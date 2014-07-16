@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :shares
+
   devise_for :users,
           :controller => {
             :omniauth_callbacks => "users/omniauth_callbacks"
