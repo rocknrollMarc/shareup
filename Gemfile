@@ -17,6 +17,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'uuidtools'
+gem 'bootstrap-sass-rails'
 
 gem 'angularjs-rails', '>= 1.2.0.rc1'
 gem 'ngmin-rails'
