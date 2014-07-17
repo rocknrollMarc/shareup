@@ -16,6 +16,24 @@
               </p>
         </div>
       </div>
+
+      <div class="small-1 large-1 columns">
+        <div data-ng-hide="showShareBox">
+          <a ng-click="showShareBox=!showShareBox">Share with a friend</a>
+        </div>
+        <div data-ng-show="showShareBox">
+          <form name="shareForm">
+            <label>Share with a friend</label>
+            <input type="button"
+            class="btn"
+            value="Cancel"
+            data-ng-click="showShareBox = !showShareBox">
+            <input type="submit" class="btn"
+              ng-click="showShareBox=!showShareBox;share()"
+              ng-disabled="shareForm.$invalid" value="Share">
+          </form>
+        </div> <!-- showShareBox -->
+      </div> <!-- commentBox -->
     </li>
   </ul>
 </div>
