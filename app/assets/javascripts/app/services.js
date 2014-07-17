@@ -1,10 +1,10 @@
 angular.module('myApp.services', [])
 .factory('ArticleService', function($http, $q) {
-  var services = {
+  var service = {
     getLatestFeed: function() {
       var d = $q.defer();
       $http.jsonp('http://ajax.googleapis.com/ajax/services/feed/load' +
-                 '?v=1.0&num=50&callback=JSON_CALLBACK&q=' +
+                 '?v=1.0&num=50&callback=JSON_CALLBACK&q='+
                  encodeURIComponent(
                   'http://feeds.huffingtonpost.com/huffingtonpost/raw_feed'
                   )
@@ -31,16 +31,15 @@ angular.module('myApp.services', [])
 .factory("SessionService", function() {
   var service = {
     getCurrentUser: function() {
-      if (service.isAuthenticated() {
+      if (service.isAuthenticated()) {
         return $q.when(service.currentUser);
       } else {
         return $http.get('/api/current_user').then(function(resp) {
           return service.currentUser = resp.data;
         });
       }
-         
     },
-    currentUser = null,
+    currentUser: null,
     isAuthenticated: function() {
       return !!service.currentUser;
     }

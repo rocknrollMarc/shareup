@@ -127,7 +127,7 @@ Devise.setup do |config|
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
   # config.remember_for = 2.weeks
-
+  config.reset_password_within = 6.hours
   # If true, extends the user's remember period when remembered via cookie.
   # config.extend_remember_period = false
 
@@ -137,7 +137,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 8..128
+#  config.password_length = 8..128
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
@@ -158,6 +158,7 @@ Devise.setup do |config|
   # :none            = No lock strategy. You should handle locking by yourself.
   # config.lock_strategy = :failed_attempts
 
+  config.sign_out_via = :delete
   # Defines which key will be used when locking and unlocking an account
   # config.unlock_keys = [ :email ]
   config.omniauth :twitter, AppConfig.twitter['clientId'],

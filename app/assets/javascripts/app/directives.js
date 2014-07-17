@@ -25,7 +25,7 @@ angular.module('myApp.directives', [])
 return d.promise;
 };
 
-var checking = null,+
+var checking = null,
   emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
   return {
     restrict: 'A',
@@ -52,7 +52,7 @@ var checking = null,+
               checking = null;
               ctrl.$setValidity('isUserOrEmail', true);
             } else {
-              checking = null:
+              checking = null;
                 ctrl.$setValidity('isUserOrEmail', false);
             }
           }
