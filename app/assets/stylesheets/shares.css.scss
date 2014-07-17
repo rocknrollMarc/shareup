@@ -1,3 +1,49 @@
-// Place all the styles related to the shares controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@charset "UTF-8";
+/* $Mixins */
+body ul {
+  list-style-type: none; }
+
+a {
+  color: #222; }
+
+.article-listing {
+  border: 1px solid #f2f2f2;
+  min-height: 50px;
+  overflow: auto;
+  margin: 10px 0;
+  -webkit-border-radius: 5px;
+  /* Saf3-4, iOS 1-3.2, Android ≤1.6 */
+  border-radius: 5px;
+  /* Opera 10.5, IE9, Saf5, Chrome, FF4+, iOS 4, Android 2.1+ */
+  /* Hiding background color from leaking outside the border */
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  background-image: -webkit-linear-gradient(top, white, #eeeeee);
+  /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient(top, white, #eeeeee);
+  /* FF3.6+ */
+  background-image: -ms-linear-gradient(top, white, #eeeeee);
+  /* IE10 */
+  background-image: -o-linear-gradient(top, white, #eeeeee);
+  /* Opera 11.10+ */
+  background-image: linear-gradient(to bottom, white, #eeeeee);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); }
+  .article-listing h2 {
+    font-size: 16px;
+    font-weight: bolder; }
+  .article-listing p {
+    font-size: 12px;
+    overflow: hidden; }
+  .article-listing h4 a {
+    display: inline; }
+  .article-listing .middle {
+    margin-top: 15px; }
+
+input.ng-dirty.ng-valid {
+  border: 1px solid green; }
+
+input.ng-dirty.ng-invalid {
+  border: 1px solid red; }

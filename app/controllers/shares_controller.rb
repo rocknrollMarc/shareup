@@ -2,7 +2,7 @@ class SharesController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create]
   respond_to :json
 
-  def index 
+  def index
     render json: []
   end
 
@@ -16,11 +16,11 @@ class SharesController < ApplicationController
       share_params[:to_email] = params[:user]
     end
 
-    share = Share.created(share_params)
+    share = Share.create(share_params)
     render status: 200,
-      json: {
-        success: share.persisted?,
-        share_id: share.id
-    }
+          json: {
+            success: share.persisted?,
+            share_id: share.id
+          }
   end
 end

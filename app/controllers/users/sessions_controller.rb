@@ -1,28 +1,30 @@
 class Users::SessionsController < Devise::SessionsController
-  respond_to :json
-  def show_current_user
-    reject_if_not_authorized_request!
-    render status: 200,
-      json: {
-        success: true,
-        info: current_user,
-        user: current_user
-    }
-  end
+	respond_to :json
 
-  def failure
-    render status: 401,
-      json: {
-        success: false,
-        info: "Unauthorized"
-    }
-  end
+	def show_current_user
+		reject_if_not_authorized_request!
+		render status: 200,
+			json: {
+				success: true,
+				info: "Current user",
+				user: current_user
+			}
+	end
 
-  private
+	def failure
+		render status: 401,
+			json: {
+				success: false,
+				info: "Unauthorized"
+			}
+	end
 
-  def reject_if_not_authorized_request!
-    warden.authenticate!(
-      scope: resource_name,
-      recall: "#{controller_path}#failure")
-  end
-end
+	private
+
+	def reject_if_not_authorized_request!
+		warden.authenticate!(
+			scope: resource_name,
+			recall: "#{controller_path}#failure"
+			)
+	end
+end	
