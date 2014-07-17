@@ -1,36 +1,54 @@
-<div>
-  <ul>
-    <li ng-repeat="article in articles | orderBy:publishedDate:false">
+<nav class="top-bar">
+  <ul class="title-area">
+    <!-- Title area -->
+    <li class="name">
+      <h1><a href="#">Welcome back {{ user.name }}</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="divider show-for-small"></li>
+      <li>
+        <a href="/users/sign_out">Sign out</a>
+      </li>
+    </ul>
+  </section>
+</nav>
+<div class="container">
+  <div class="row">
+    <ul class="large-12 columns">
+      <li class="row"
+        data-ng-repeat="article in articles | orderBy:publishedDate:false">
       <div class="article-listing">
-        <div class="large-11 small-11 columns">
-          <h2>
-            Welcome back {{ user.name }}
-            <a
-                href="{{ article.link }}"
-                title="{{article.title}}">
-                {{article.title}}
-            </a>
-          </h2>
+        <div class="large-10 small-10  columns">
+          <h2><a href=" {{ ngModel.link }}" title=" {{ ngModel.title }} ">
+              {{ ngModel.title }}
+              </a>
+            </h2>
               <p>
-                  {{article.publishedDate | date: 'M/d/yy h:mm:ss a'}}
+                {{ ngModel.publishedDate | toDate |date: 'M/d/yy h:mm:ss a' }}
               </p>
         </div>
-      </div>
-
-      <div class="small-1 large-1 columns">
-        <div data-ng-hide="showShareBox">
-          <a ng-click="showShareBox=!showShareBox">Share with a friend</a>
-        </div>
-        <div data-ng-show="showShareBox">
-          <form name="shareForm">
-            <label>Share with a friend</label>
-            <input type="button"
-            class="btn"
-            value="Cancel"
-            data-ng-click="showShareBox = !showShareBox">
-            <input type="submit" class="btn"
-              ng-click="showShareBox=!showShareBox;share()"
-              ng-disabled="shareForm.$invalid" value="Share">
+        <div class="small-2 large-2 columns">
+          <div data-ng-hide= "showShareBox">
+            <a ng-click="showShareBox=!showShareBox">Share with a friend</a>
+          </div>
+          <div data-ng-show="showShareBox">
+            <form name="shareForm">
+              <label>Share with a friend</label>
+              <input type="text"
+                placeholder="email or username"
+                ng-model="newShare.recipient"
+                is-user-or-email="">
+              <input type="button" class="btn" value="Cancel" data-ng-click="showShareBox = !showShareBox">
+              <input type="submit"
+                class="btn"
+                ng-click="showShareBox=!showShareBox;share()"
+                ng-disabled="shareForm.$invalid"
+                value="Share">
           </form>
         </div> <!-- showShareBox -->
       </div> <!-- commentBox -->
