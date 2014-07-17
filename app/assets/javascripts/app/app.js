@@ -2,7 +2,14 @@ angular.module('myApp', ['ngRoute', 'ngResource', 'myApp.controllers', 'myApp.se
 .config(function($routeProvider) {
   $routeProvider.when('/', {
     templateUrl: '/templates/dashboard.html',
-    controller: 'HomeController'
+    controller: 'HomeController',
+    resolve: {
+      session: function(SessionService) {
+        return SessionService.getCurrentUser();
+      }
+    }
   })
-  .otherwise({redirectTo: '/'});
+  .otherwise({
+    redirectTo: '/'
+  });
 });
